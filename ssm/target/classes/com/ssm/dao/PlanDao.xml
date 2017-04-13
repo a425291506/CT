@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.ssm.dao.PlanDao">
+	<select id="findAllPlan" resultType="com.ssm.model.Plan">
+		select * from plan where
+		ProjectId=#{2} order by CreateTime desc limit #{0},#{1};
+	</select>
+	<insert id="insertPlan" parameterType="com.ssm.model.Plan">
+		insert into plan
+		values(null,#{projectId},#{function1},#{developers},#{createTime},#{projectLeader});
+	</insert>
+
+	<select id="findPlanById" parameterType="int" resultType="com.ssm.model.Plan">
+		select
+		* from plan where PlanId = #{PlanId};
+	</select>
+
+	<update id="updatePlan" parameterType="com.ssm.model.Plan">
+		update Plan
+		<set>
+			<if test="Function1 != null and Function1 != ''">
+				Function1 = #{Function1},
+			</if>
+			<if test="Developers != null and Developers != ''">
+				Developers = #{Developers},
+			</if>
+			<if test="CreateTime != null and CreateTime !=''">
+				CreateTime = #{CreateTime},
+			</if>
+			<if test="projectLeader !=null and projectLeader !=''">
+				projectLeader = #{projectLeader}
+			</if>
+			
+		</set>
+		where PlanId = #{PlanId};
+	</update>
+	<delete id="deletePlanById" parameterType="int">
+		delete from Plan where
+		PlanId=#{PlanId};
+	</delete>
+
+</mapper>
+
+
+
+
+
+
+

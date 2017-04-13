@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+ <mapper namespace="com.ssm.dao.ProjectDao">
+ 
+ 	<select id="findAllproject3" resultType="com.ssm.model.Project">
+		SELECT * FROM Project where customerId=#{2} order by createTime desc limit #{0},#{1};
+	</select>
+	
+ 	<select id="findAllProject" resultType="com.ssm.model.Project">
+ 		select * from Project order by CreateTime desc limit #{0},#{1};
+ 	</select>
+ 	<select id="findAllProject1" resultType="com.ssm.model.Project">
+ 		select * from Project order by CreateTime desc ;
+ 	</select>
+ 	<select id="findAllProject2" resultType="com.ssm.model.Project">
+ 		select * from Project where ProjectName=#{0} order by CreateTime desc ;
+ 	</select>
+ 	<!-- parameterType传参类型 	resultType返回类型 -->
+ 	<select id="findProjectById" parameterType="int" resultType="com.ssm.model.Project">
+ 		select * from Project where ProjectId = #{ProjectId};
+ 	</select>
+ 	
+ 	<insert id="projectzj_xm" parameterType="com.ssm.model.Project">
+ 		insert into project values(null,#{ProjectType},#{ProjectName},#{ProjectStatus},#{CustomerId},#{CreateTime})
+ 	</insert>
+ 	
+ 	<update id="updateProject" parameterType="com.ssm.model.Project"> 
+ 		update project
+ 		<set>
+ 			<if test="ProjectType !=null and ProjectType !=''">
+ 				 ProjectType = #{ProjectType},
+ 			</if>
+ 			<if test="ProjectName !=null and ProjectName !=''">
+ 				 ProjectName = #{ProjectName},
+ 			</if>
+ 			<if test="ProjectStatus !=null and ProjectStatus !=''">
+ 				 ProjectStatus = #{ProjectStatus},
+ 			</if>
+ 			
+ 			<if test="CreateTime !=null and CreateTime!=''">
+ 				 CreateTime = #{CreateTime}
+ 			</if>
+ 		</set>
+ 		where ProjectId=#{ProjectId}
+ 	</update>
+ 	<delete id="deleteProject"  parameterType="int">
+ 		delete from project where ProjectId=#{ProjectId}
+ 	</delete>
+ </mapper>	

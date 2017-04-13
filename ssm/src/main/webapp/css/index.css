@@ -1,0 +1,38 @@
+@CHARSET "UTF-8";
+
+* {
+	margin: auto 0;
+}
+
+.login {
+	top: 40%;
+	left: 35%;
+	position: absolute;
+	width: 400px;
+	height: 200px;
+	border: 2px solid #33ccff;
+	background: #aaffee;
+}
+
+.biaoti {
+	position: absolute;
+	left: 42%;
+	top: 150px;
+	font-size: 26px;
+	color: #000000;
+	font-weight: blod;
+}
+
+.text {
+	background: #009fcc;
+	width: 150px;
+	height: 25px;
+}
+
+.button {
+	background: #33ccff;
+	color: #000000;
+	width: 70px;
+	height: 30px;
+	font-size: 16px;
+}

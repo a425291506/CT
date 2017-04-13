@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace = "com.ssm.dao.VersionDao">
+
+   <resultMap type = "com.ssm.model.Version" id = "result">
+ 		<id column = "VersionId" property = "VersionId" jdbcType = "INTEGER"/>
+ 		<result column = "ProjectId" property = "ProjectId" jdbcType = "INTEGER"/>
+ 		<result column = "VersionDescribe" property = "VersionDescribe" jdbcType = "VARCHAR"/>
+ 		<result column = "RunFile" property = "RunFile" jdbcType = "VARCHAR"/>
+ 		<result column = "SourceFile" property = "SourceFile" jdbcType = "VARCHAR"/>
+ 		<result column = "CreateTime" property = "CreateTime" jdbcType = "VARCHAR"/>
+ 	</resultMap>
+ 	
+	<select id = "findAllVersion" resultMap = "result">
+		select * from Version where ProjectId = #{2} order by CreateTime desc  limit #{0}, #{1};
+	</select>
+	
+	<insert id = "insertVersion">
+	   insert into version(ProjectId, VersionDescribe, RunFile, SourceFile, CreateTime) values(#{ProjectId}, #{VersionDescribe}, #{RunFile}, #{SourceFile}, #{CreateTime});
+	</insert>
+	
+	<update id = "updateVersion">
+	   update version
+	   <set>
+	   <if test = "VersionDescribe != null and VersionDescribe != ''">
+	         and VersionDescribe = #{VersionDescribe}
+	   </if>
+	   <if test = "RunFile != null and RunFile != ''">
+	         and RunFile = #{RunFile}
+	   </if>
+	   <if test = "SourceFile != null and SourceFile != ''">
+	         and SourceFile = #{SourceFile}
+	   </if>
+	   <if test = "CreateTime != null and CreateTime != ''">
+	         and CreateTime = #{CreateTime}   
+	   </if>
+	   </set>
+	   where ProjectId = #{ProjectId};
+	</update>
+	
+	<delete id="deleteVersion">
+	
+	</delete> 
+</mapper>
+
+
+
+
+
+
+

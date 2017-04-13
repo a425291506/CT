@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.ssm.dao.UserDao">
+	<resultMap type="com.ssm.model.User" id="result">
+		<id column="UserId" property="UserId" jdbcType="INTEGER" />
+		<result column="UserRole" property="UserRole" jdbcType="VARCHAR" />
+		<result column="UserName" property="UserName" jdbcType="VARCHAR" />
+		<result column="Password" property="Password" jdbcType="VARCHAR" />
+		<result column="JobNumber" property="JobNumber" jdbcType="INTEGER" />
+		<result column="PhoneNumber" property="PhoneNumber" jdbcType="INTEGER" />
+
+		<result column="CreateTime" property="CreateTime" jdbcType="VARCHAR" />
+	</resultMap>
+	<select id="queryUser" resultMap="result">
+		select * from User
+		<where>
+			<if test="UserId!=null and UserId!=''">
+				and UserId = #{UserId}
+			</if>
+			<if test="UserRole != null and UserRole != ''">
+				and UserRole = #{UserRole}
+			</if>
+			<if test="UserName != null and UserName != ''">
+				and UserName = #{UserName}
+			</if>
+			<if test="Password != null and Password!=''">
+				and Password = #{Password}
+			</if>
+			<if test="PhoneNumber != null and PhoneNumber!=0">
+				and PhoneNumber = #{PhoneNumber}
+			</if>
+			<if test="JobNumber != null and JobNumber!=0">
+				and JobNumber = #{JobNumber}
+			</if>
+
+		</where>
+		order by CreateTime desc
+	</select>
+	<insert id="insertUser">
+		insert into
+		user(UserRole,UserName,Password,PhoneNumber,JobNumber,CreateTime)
+		values(#{UserRole},#{UserName},#{Password},#{PhoneNumber},#{JobNumber},#{CreateTime})
+	</insert>
+	<update id="updateUser">
+		update User
+		<set>
+			<if test="UserRole != null and UserRole != ''">
+				and UserRole = #{UserRole}
+			</if>
+			<if test="UserName != null and UserName != ''">
+				and UserName = #{UserName}
+			</if>
+			<if test="Password != null and Password!=''">
+				and Password = #{Password}
+			</if>
+			<if test="PhoneNumber != null and PhoneNumber!=''">
+				and PhoneNumber = #{PhoneNumber}
+			</if>
+			<if test="JobNumber != null and JobNumber != ''">
+				and JobNumber = #{JobNumber}
+			</if>
+		</set>
+		where UserId = #{UserId};
+	</update>
+	<delete id="deleteUser" parameterType="com.ssm.model.User">
+		delete from user where UserId=#{UserId};
+	</delete>
+
+	<select id="findAllUser1" parameterType="com.ssm.model.User"
+		resultType="com.ssm.model.User">
+		select * from user order by createTime desc limit #{0},#{1};
+	</select>
+
+	<select id="findAllUser" resultType="com.ssm.model.User">
+		select * from user order by createTime desc;
+	</select>
+
+	<insert id="user_zj" parameterType="com.ssm.model.User">
+		insert into user
+		values(null,#{UserRole},#{UserName},#{Password},#{JobNumber},#{CreateTime},#{PhoneNumber});
+	</insert>
+
+	<update id="user_xg" parameterType="com.ssm.model.User">
+		update user
+		<set>
+			<if test="UserName !=null and UserName !=''">
+				UserName = #{UserName},
+			</if>
+			<if test="UserRole !=null and UserRole !=''">
+				UserRole = #{UserRole},
+			</if>
+			<if test="JobNumber !=null and JobNumber !=0">
+				JobNumber = #{JobNumber},
+			</if>
+
+			<if test="PhoneNumber !=null and PhoneNumber !=0">
+				PhoneNumber = #{PhoneNumber},
+			</if>
+			<if test="CreateTime !=null and CreateTime!=''">
+				CreateTime = #{CreateTime}
+			</if>
+		</set>
+		where UserId=#{UserId}
+	</update>
+
+	<select id="findUserById" parameterType="int" resultType="com.ssm.model.User">
+		select * from User where UserId=#{UserId};
+	</select>
+	<delete id="user_sc" parameterType="com.ssm.model.User">
+		delete from user where userId=#{UserId};
+	</delete>
+
+	<insert id="register" parameterType="com.ssm.model.User">
+		insert into user
+		values(null,#{userRole},#{userName},#{password},#{jobNumber},#{createTime},#{phoneNumber});
+	</insert>
+
+	<select id="findUser" resultType="com.ssm.model.User">
+	select * from user
+	where jobNumber like CONCAT(#{JobNumber},'%');
+	
+	</select>
+</mapper>

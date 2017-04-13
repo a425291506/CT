@@ -1,0 +1,20 @@
+@CHARSET "UTF-8";
+*{margin:auto 0;}
+.versionRun{width:400px;height:40px;position:relative;top:40px;left:30px;}
+.versionSource{width:400px;height:40px;position:relative;top:60px;left:30px;}
+.versionDescribe{width:400px;height:120px;position:relative;top:80px;left:30px;}
+.versionButton{background:#27a2e6;
+	color:#ffffff;
+	height:30px;
+	width:70px;
+	line-height:30px;
+	text-align:center;
+	font-size:15px;
+	position:relative;top:100px;left:30px;}
+.button{background:#27a2e6;
+	color:#ffffff;
+	height:30px;
+	width:70px;
+	line-height:30px;
+	text-align:center;
+	font-size:15px;}

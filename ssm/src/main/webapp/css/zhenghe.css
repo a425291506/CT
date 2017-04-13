@@ -1,0 +1,11 @@
+@CHARSET "UTF-8";
+
+.contacts_zjanniu {
+	background: #27a2e6;
+	color: #ffffff;
+	height: 30px;
+	width: 100px;
+	line-height: 30px;
+	text-align: center;
+	font-size: 15px;
+}

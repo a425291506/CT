@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.ssm.dao.CustomerDao">
+	<select id="findAllCustomer" resultType="com.ssm.model.Customer">
+		select * from Customer ;
+	</select>
+	<select id="findAllCustomer1" resultType="com.ssm.model.Customer">
+		select * from Customer
+		order by CreateTime desc limit #{0},#{1};
+	</select>
+	<select id="findAllCustomer2" resultType="com.ssm.model.Customer">
+		select * from Customer
+		where CustomerId=#{2} order by CreateTime desc limit #{0},#{1};
+	</select>
+
+	<!-- id对应Dao里方法 //传入的类型 -->
+	<insert id="insertCustomer" parameterType="com.ssm.model.Customer">
+		insert into Customer
+		values( null , #{CustomerName} , #{CustomerAddress},#{CreateTime},#{contactsName1},#{contactsPhone1},#{contactsName2},#{contactsPhone2},#{contactsName3},#{contactsPhone3},#{contactsName4},#{contactsPhone4},#{contactsName5},#{contactsPhone5});
+	</insert>
+	<update id="updateCustomer" parameterType="com.ssm.model.Customer">
+		update Customer set
+		customerName=#{CustomerName} , customerAddress=#{CustomerAddress},contactsName1=#{contactsName1},contactsPhone1=#{contactsPhone1},
+		contactsName2=#{contactsName2},contactsPhone2=#{contactsPhone2},contactsName3=#{contactsName3},contactsPhone3=#{contactsPhone3},
+		contactsName4=#{contactsName4},contactsPhone4=#{contactsPhone4},contactsName5=#{contactsName5},contactsPhone5=#{contactsPhone5}
+		where CustomerId=#{CustomerId};
+	</update>
+
+	<delete id="deleteCustomer" parameterType="com.ssm.model.Customer">
+		delete from Customer
+		where CustomerId=#{CustomerId};
+	</delete>
+
+	<select id="findCustomer1" resultType="com.ssm.model.Customer">
+		select * from Customer
+		where CustomerName like CONCAT(#{CustomerName},'%');
+	</select>
+
+	<select id="findCustomerByName" parameterType="String"
+		resultType="com.ssm.model.Customer">
+		select * from customer where customerName=#{customerName};
+	</select>
+	
+	<select id="findCustomerById" parameterType="int" resultType="com.ssm.model.Customer">
+		select * from customer where customerId=#{customerId};
+	</select>
+	
+</mapper>	

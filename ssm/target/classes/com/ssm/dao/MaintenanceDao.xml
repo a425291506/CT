@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.ssm.dao.MaintenanceDao">
+	<select id="findAllMaintenance" resultType="com.ssm.model.Maintenance">
+		select * from
+		Maintenance order by CreateTime desc limit #{0},#{1};
+	</select>
+	<insert id="insertMaintenance" parameterType="com.ssm.model.Maintenance">
+		insert into
+		Maintenance(projectId,ProblemDescribe,ProblemType,SolveMethod,createTime)
+		values(#{projectId},#{ProblemDescribe},#{ProblemType},#{SolveMethod},#{createTime});
+	</insert>
+
+	<select id="findAllMaintenances" resultType="com.ssm.model.Maintenance">
+		SELECT * FROM
+		maintenance where projectId=#{2} order by createTime desc limit
+		#{0},#{1};
+	</select>
+
+	<select id="findMaintenanceById" parameterType="int"
+		resultType="com.ssm.model.Maintenance">
+		select * from Maintenance where MaintenanceId =
+		#{MaintenanceId};
+	</select>
+
+	<update id="updateMaintenance" parameterType="com.ssm.model.Maintenance">
+		update Maintenance
+		<set>
+			<if test="ProblemDescribe != null and ProblemDescribe != ''">
+				ProblemDescribe = #{ProblemDescribe},
+			</if>
+			<if test="ProblemType != null and ProblemType != ''">
+				ProblemType = #{ProblemType},
+			</if>
+			<if test="SolveMethod != null and SolveMethod != ''">
+				SolveMethod = #{SolveMethod},
+			</if>
+			<if test="CreateTime != null and CreateTime !=''">
+				CreateTime = #{CreateTime}
+
+			</if>
+		</set>
+		where MaintenanceId = #{MaintenanceId};
+	</update>
+	<delete id="deleteMaintenanceById" parameterType="int">
+		delete from
+		Maintenance where MaintenanceId=#{MaintenanceId};
+	</delete>
+
+	<select id="findAllMaintenance1" resultType="com.ssm.model.Maintenance">
+		select * from
+		maintenance order by createTime desc;
+	</select>
+
+</mapper>
+
+
+
+
+
+
+

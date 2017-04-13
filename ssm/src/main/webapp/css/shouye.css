@@ -1,0 +1,242 @@
+@CHARSET "UTF-8";
+
+* {
+	margin: auto 0;
+}
+
+.kuang {
+	width: 100%;
+	height: 580px;
+}
+
+.kuang1 {
+	width: 100%;
+	height: 90px;
+	background: url(../images/toubu.png);
+	background-size: 100% 100px;
+}
+
+.kuang2 {
+	width: 200px;
+	height: 480px;
+	background: #27a2e6;
+}
+
+.caidan {
+	width: 200px;
+	height: 50px;
+	position: relative;
+	left: 30px;
+	line-height: 50px;
+	color: #ffffff;
+}
+
+.kuang2 ul {
+	width: 200px;
+	height: 250px;
+	padding-left: 0px;
+}
+
+.kuang2 ul li {
+	width: 200px;
+	height: 50px;
+	display: block;
+}
+
+.kuang2 ul li a {
+	line-height: 50px;
+	text-decoration: none;
+	color: #ffffff;
+	position: relative;
+	left: 30px;
+}
+
+.kuang2 ul li:hover {
+	width: 200px;
+	height: 50px;
+	background: #27a2e6;
+}
+
+.kuang2 ul li ul {
+	width: 200px;
+	height: 200px;
+	padding-left: 0px;
+}
+
+.kuang2 ul li ul li {
+	width: 200px;
+	height: 40px;
+	display: block;
+}
+
+.kuang2 ul li ul li a {
+	line-height: 50px;
+	text-decoration: none;
+	color: #ffffff;
+	position: relative;
+	left: 60px;
+}
+
+.kuang2 ul li ul li:hover {
+	width: 200px;
+	height: 40px;
+	background: #0044bb;
+}
+
+.biaotiweizhi {
+	width: 20px;
+	height: 25px;
+	position: relative;
+	top: 5px;
+}
+
+.biaoti {
+	position: relative;
+	top: 20px;
+	left: 30px;
+	color: #ffffff;
+	font-size: 20px;
+	font-weight: blod;
+}
+
+.shezhi {
+	position: relative;
+	left: 950px;
+	top: 30px;
+}
+
+.end {
+	position: relative;
+	left: 1000px;
+	color: #ffffff;
+	font-size: 14px;
+	top: 30px;
+}
+
+.kuang3 {
+	width: 60%;
+	position: relative;
+	left: 220px;
+	top: -480px;
+}
+
+.d11 {
+	position: relative;
+	left: 130px;
+	top: -10px;
+}
+
+.font {
+	color: #000000;
+	font-size: 18px;
+	position: relative;
+	top: 20px;
+}
+
+.tianjiajihua {
+	background: #27a2e6;
+	color: #ffffff;
+	height: 30px;
+	width: 70px;
+	line-height: 30px;
+	text-align: center;
+	font-size: 15px;
+}
+
+.d1 {
+	width: 100%;
+	height: 30px;
+	position: relative;
+	top: 20px;
+}
+
+.tou1 {
+	width: 100%;
+	height: 50px;
+	position: relative;
+	left: 130px;
+	top: 70px;
+}
+
+.tou2 {
+	width: 100%;
+	position: relative;
+	left: 130px;
+	top: 70px;
+}
+
+.tou3 {
+	width: 100%;
+	position: relative;
+	height: 30px;
+	left: 520px;
+	top: 80px;
+}
+.select{
+	position:relative;
+	left:435px;
+	top:-25px;
+	font-size: 18px;
+	color: #000000;
+}
+.tianjiajihua1{
+	<!--background: #27a2e6;-->
+	height: 30px;
+	width: 70px;
+	line-height: 30px;
+	text-align: center;
+	font-size: 15px;
+}
+.projectselect {
+	position: relative;
+	left: 450px;
+	height: 30px;
+	width: 70px;
+	top: -25px;
+}
+
+.sousuo {
+	position: absolute;
+	left: 80px;
+	height: 20px;
+	width: 100px;
+	top: 1px;
+}
+.sousuos {
+	position: absolute;
+	left: 75px;
+	height: 25px;
+	width: 100px;
+	top: 1px;
+}
+
+.sousuobutton {
+	position: absolute;
+	left: 200px;
+	height: 30px;
+	width: 50px;
+	background: #27a2e6;
+	color: #ffffff;
+	top: 1px;
+	line-height: 30px;
+	text-align: center;
+}
+.zjbutton {
+	position: absolute;
+	height: 30px;
+	width: 50px;
+	background: #27a2e6;
+	color: #ffffff;
+	top: 1px;
+	line-height: 30px;
+	text-align: center;
+}
+
+.jihuabutton {
+	background: #27a2e6;
+	width: 70px;
+	height: 30px;
+	color: #ffffff;
+	line-height: 30px;
+	text-align: center;
+}
